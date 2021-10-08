@@ -1,21 +1,25 @@
 <template>
-<div class="basic-layout">
-    <menu/>
+    <div class="Basic-layout">
+        <Menu/>
     
-<div class="ui container">
-    <slot />
+    <div class="ui container">
+        <slot />
     </div>
-</div>
+    </div>
 </template>
 
 <script>
-import Menu from './components/Menu.vue';
+import Menu from '../components/menu.vue';
 
 export default {
-    name: "basiclayouts",
+    name: "Basiclayouts",
     components: {
-        Menu
-    }
-}
-
+        Menu,
+    
+        },
+};
 </script>
+
+<style>
+
+</style>
