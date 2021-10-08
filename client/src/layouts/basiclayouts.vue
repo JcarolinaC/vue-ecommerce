@@ -4,17 +4,20 @@
     <div class="ui container">
         <slot />
     </div>
-</div>
 </template>
 
 <script>
 import Menu from '@/components/Menu.vue';
 
 export default {
-    name: "basiclayouts",
+    name: "Basiclayouts",
     components: {
-        Menu
-    }
-}
-
+        Menu,
+    
+        },
+};
 </script>
+
+<style>
+
+</style>
