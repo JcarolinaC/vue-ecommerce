@@ -1,15 +1,13 @@
 <template>
-    <div class="Basic-layout">
-        <Menu/>
-    
+<div class="basic-layout">
+    <menu/>
     <div class="ui container">
         <slot />
-    </div>
     </div>
 </template>
 
 <script>
-import Menu from '../components/menu.vue';
+import Menu from '@/components/Menu.vue';
 
 export default {
     name: "Basiclayouts",
