@@ -1,8 +1,8 @@
 <template>
 <Basiclayouts>
-    <div class="register">
+    <div class="">
         <h2> Registro de usuario </h2>
-        <form class="ui form" @submit.prevent="register">
+        <form class="ui form" @submit.prevent="Register">
             <div class="field">
                 Nombre de usuario: 
                 <input type="text" 
@@ -58,14 +58,14 @@ setup() {
         email: Yup.string().email(true).required(true),
         password: Yup.string().required(true),
     });
-    const register = async () => {
+    const Register = async () => {
         
         formError.value = {};
 
             try {
                 await schemaForm.validate(formData.value, { abortEarly: false});  
                 try {
-                    const response = await registerApi(formData.value);
+                    const response = await RegisterApi(formData.value);
                     router.push("/login");
                 } catch (error) {
                     console.log(error);
@@ -79,7 +79,7 @@ setup() {
 
     return {
         formData,
-        register,
+        Register,
         formError,
     };
 },
@@ -87,7 +87,7 @@ setup() {
 </script>
 
 <style lang="scss" scoed>
-    .register {
+    .Register {
         text-align: center;
         h2 {
             margin: 50px 0 30px 0 ;

@@ -1,7 +1,7 @@
 <template>
 <Basiclayouts>
     <h1>estamos en login</h1>
-    <router-link to="/register">
+    <router-link to="@/Register">
     Crear una cuenta 
     </router-link>
     </Basiclayouts>
