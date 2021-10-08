@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import Basiclayouts from '@/layouts/basiclayouts.vue';
+import Basiclayouts from '@/layouts/Basiclayouts.vue';
 // @ is an alias to /src
 
 export default {
