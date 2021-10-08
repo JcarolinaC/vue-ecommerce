@@ -1,9 +1,11 @@
 <template>
-<div class="basic-layout">
-    <menu/>
+<div class="Basic-layout">
+    <Menu/>
+
     <div class="ui container">
         <slot />
     </div>
+</div>
 </template>
 
 <script>
