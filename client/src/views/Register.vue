@@ -30,7 +30,10 @@
 						:class="{ error: formError.password }"
 					/>
 				</div>
-				<button type="submit" class="ui button fluid primary">
+				<button type="submit" 
+				class="ui button fluid primary"
+				:class="{ loading }"
+				>
 					Crear Usuario
 				</button>
 			</form>
@@ -53,6 +56,7 @@ export default {
 	setup() {
 		let formData = ref({});
 		let formError = ref({});
+		let loading = ref(false);
 		const router = useRouter();
 		const schemaForm = Yup.object().shape({
 			username: Yup.string().required(true),
@@ -61,6 +65,7 @@ export default {
 		});
 		const Register = async () => {
 			formError.value = {};
+			loading.value = true;
 
 			try {
 				await schemaForm.validate(formData.value, { abortEarly: false });
@@ -76,12 +81,14 @@ export default {
 					formError.value[err.path] = err.message;
 				});
 			}
+			loading.value = false;
 		};
 
 		return {
 			formData,
 			Register,
 			formError,
+			loading,
 		};
 	},
 };
