@@ -7,6 +7,7 @@
     "build": "vue-cli-service build"
   },
   "dependencies": {
+    "@popperjs/core": "^2.10.2",
     "bootstrap": "^5.1.2",
     "core-js": "^3.6.5",
     "semantic-ui-css": "^2.4.1",

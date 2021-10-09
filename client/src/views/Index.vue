@@ -18,9 +18,9 @@ export default {
 </script>
 
 <style>
+  @import'~bootstrap/dist/css/bootstrap.css';
 .button{
     background-color: aquamarine;
 }
 
-@import'~bootstrap/dist/css/bootstrap.css';
 </style>
