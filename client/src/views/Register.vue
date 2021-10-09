@@ -43,7 +43,7 @@ import { ref } from 'vue';
 import { useRouter } from 'vue-router';
 import * as Yup from 'yup';
 import Basiclayouts from '@/layouts/Basiclayouts.vue';
-import { registerApi } from '../api/user';
+import { registerApi } from '../api/user.js';
 export default {
     name: 'Register',
     components: {
@@ -65,8 +65,8 @@ setup() {
             try {
                 await schemaForm.validate(formData.value, { abortEarly: false});  
                 try {
-                    const response = await RegisterApi(formData.value);
-                    router.push("/login");
+                    const response = await registerApi(formData.value);
+                    router.push("/Login");
                 } catch (error) {
                     console.log(error);
                 }
