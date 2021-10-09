@@ -1,13 +1,13 @@
 <template>
-    <div class="ui secondary Menu">
+    <div class="ui secondary menu">
         <div class="ui container">
-                <div class="left Menu">
+                <div class="left menu">
                     <router-link class="item" to="/">
                         <img class="ui small image" src="../assets/logo.png" alt="Ecomerce" />
                         <p>categoria...</p>
                     </router-link>
                 </div>
-                <div class="right Menu">
+                <div class="right menu">
                 <router-link class="item" to="/">
                     <i class="home icon"></i>
                     Inicio

@@ -1,6 +1,6 @@
 <template>
 <Basiclayouts>
-    <div class="register">
+    <div class="Register">
         <h2> Registro de usuario </h2>
         <form class="ui form" @submit.prevent="Register">
             <div class="field">
@@ -43,7 +43,7 @@ import { ref } from 'vue';
 import { useRouter } from 'vue-router';
 import * as Yup from 'yup';
 import Basiclayouts from '@/layouts/Basiclayouts.vue';
-import { registerApi } from '@/api/user';
+import { registerApi } from '../api/user';
 export default {
     name: 'Register',
     components: {
