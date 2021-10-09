@@ -4,7 +4,7 @@
                 <div class="left Menu">
                     <router-link class="item" to="/">
                         <img class="ui small image" src="@/assets/logo.png" alt="Ecomerce" />
-                        <p>categoria...</p>
+                        <p>Harmony</p>
                     </router-link>
                 </div>
                 <div class="right Menu">

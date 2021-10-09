@@ -1,5 +1,5 @@
 <template>
-  <Basiclayouts>
+<Basiclayouts>
     <div class="register">
         <h2> Registro de usuario </h2>
         <form class="ui form" @submit.prevent="register">
@@ -35,54 +35,54 @@
         Iniciar sesion
         </router-link>
     </div>
-  </Basiclayouts>
+</Basiclayouts>
 </template>
 
 <script>
 import { ref } from 'vue';
 import { useRouter } from 'vue-router';
 import * as Yup from 'yup';
-import Basiclayouts from '../layouts/Basiclayouts.vue';
-import { registerApi } from '../api/user';
+import Basiclayouts from '@/layouts/Basiclayouts.vue';
+import { registerApi } from '@/api/user';
 export default {
     name: 'Register',
     components: {
-     Basiclayouts,
-  },
-  setup() {
-      let formData = ref({});
-      let formError = ref({});
-      const router = useRouter();
-      const schemaForm = Yup.object().shape({
-          username: Yup.string().required(true),
-          email: Yup.string().email(true).required(true),
-          password: Yup.string().required(true),
-      });
-      const register = async () => {
-          
+    Basiclayouts,
+},
+    setup() {
+        let formData = ref({});
+        let formError = ref({});
+        const router = useRouter();
+        const schemaForm = Yup.object().shape({
+            username: Yup.string().required(true),
+            email: Yup.string().email(true).required(true),
+            password: Yup.string().required(true),
+        });
+        const register = async () => {
+        
         formError.value = {};
 
             try {
-              await schemaForm.validate(formData.value, { abortEarly: false});  
-              try {
-                  const response = await registerApi(formData.value);
-                  router.push("/login");
-              } catch (error) {
-                  console.log(error);
-              }
-              } catch (error) {
-              error.inner.forEach((err) => {
-                  formError.value[err.path] =err.message;
-              });
-          }
-      };
+                await schemaForm.validate(formData.value, { abortEarly: false});  
+                try {
+                    const response = await registerApi(formData.value);
+                    router.push("/login");
+                } catch (error) {
+                    console.log(error);
+                }
+                } catch (error) {
+                error.inner.forEach((err) => {
+                    formError.value[err.path] =err.message;
+                });
+            }
+        };
 
-      return {
-          formData,
-          register,
-          formError,
-      };
-  },
+        return {
+            formData,
+            register,
+            formError,
+        };
+    },
 };
 </script>
 

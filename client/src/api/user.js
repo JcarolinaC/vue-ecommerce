@@ -2,7 +2,7 @@
 
 export async function registerApi(formData) {
     try {
-        const url = `${API_URL}/auth/local/register`        ;  
+        const url = `${API_URL}/auth/local/Register`        ;  
         const params = {
             method: "POST",
             headers: {
