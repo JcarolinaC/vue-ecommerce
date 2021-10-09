@@ -25,7 +25,7 @@ export default {
     props: {
         src: {
             type: String,
-            default: 'abc.jpg',
+            default: '',
         },
         text: {
             type: String,
