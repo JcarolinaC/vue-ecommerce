@@ -1,17 +1,36 @@
 <template>
   <Basiclayouts>
     <h2> Harmony un estilo de vida diferente </h2>
+    <h1>Ultimos productos</h1>
+    <div class="ui grid">
+      pendiente vfor de productos
+
+    </div>
+
   </Basiclayouts>
 </template>
 
 <script>
+import { ref, onMounted } from "vue";
 import Basiclayouts from '@/layouts/Basiclayouts.vue';
+import { getProducts } from "@/api/product.js";
+import {Product} from "@/components/Product.vue";
 // @ is an alias to /src
 
 export default {
   name: 'Home',
     components: {
       Basiclayouts,
+      Product
     },
+    setup(){
+      let products = ref(null);
+
+      onMounted(async () => {
+        const response = await getProducts(20);
+        products.value = response;
+        console.log(response);
+      });
+    }
   };
 </script>

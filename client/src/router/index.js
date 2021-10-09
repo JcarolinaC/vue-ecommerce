@@ -3,6 +3,7 @@ import Home from '../views/Home.vue'
 import Login from '../views/Login.vue'
 import Index from '../views/Index.vue'
 import Register from '../views/Register.vue'
+import Category from '../views/Category.vue'
 
 
 
@@ -28,6 +29,11 @@ const routes = [
     name: 'Index',
     component: Index
   },
+  {
+    path: '/:Category',
+    name: 'Category',
+    component: Category
+  }
 ]
 
 const router = createRouter({
