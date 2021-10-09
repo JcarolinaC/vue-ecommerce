@@ -6,7 +6,7 @@
         <Carousel/>
         <div class="card-group">
             <Card
-                src="../assets/abc.png"
+                imageName="abc.jpg"
                 text="Harmony es una empreesa creada pensando en mejorar la
                 calida de vida de las personas, inicialmente nos
                 dedicabamos a la estetica y a la belleza, durante el
@@ -20,6 +20,16 @@
                 servicios de calidad, dentro de ellos la alimentacion y
                 el entrenamiento"
                 textMuted="conoce mas de nosotros en nuestras redes sociales"
+            />
+             <Card
+                imageName="ejercicio.jpg"
+                text="This card has supporting text below as a natural lead-in to additional content"
+                textMuted="Last updated 3 mins ago"
+            />
+             <Card
+                imageName="estilo.jpg"
+                text="This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action."
+                textMuted="Last updated 3 mins ago"
             />
         </div>
         <div class="ui container">

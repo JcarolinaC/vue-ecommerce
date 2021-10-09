@@ -1,6 +1,6 @@
 <template>
 <div class="card">
-    <img class="card-img-top" src="{{src}}" />
+    <img class="card-img-top " :src="require('@/assets/' + imageName + '')"/>
     <div class="card-body">
         <p class="card-text">
             {{text}}
@@ -23,7 +23,7 @@ export default {
         Card,
         },
     props: {
-        src: {
+        imageName: {
             type: String,
             default: '',
         },
