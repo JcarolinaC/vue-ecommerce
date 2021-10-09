@@ -24,7 +24,7 @@
              <Card
                 imageName="ejercicio.jpg"
                 text="This card has supporting text below as a natural lead-in to additional content"
-                textMuted="Last updated 3 mins ago"
+                textMuted="ok lets go"
             />
              <Card
                 imageName="estilo.jpg"
