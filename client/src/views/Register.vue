@@ -2,7 +2,7 @@
 <Basiclayouts>
     <div class="register">
         <h2> Registro de usuario </h2>
-        <form class="ui form" @submit.prevent="register">
+        <form class="ui form" @submit.prevent="Register">
             <div class="field">
                 Nombre de usuario: 
                 <input type="text" 
@@ -49,23 +49,23 @@ export default {
     components: {
     Basiclayouts,
 },
-    setup() {
-        let formData = ref({});
-        let formError = ref({});
-        const router = useRouter();
-        const schemaForm = Yup.object().shape({
-            username: Yup.string().required(true),
-            email: Yup.string().email(true).required(true),
-            password: Yup.string().required(true),
-        });
-        const register = async () => {
+setup() {
+    let formData = ref({});
+    let formError = ref({});
+    const router = useRouter();
+    const schemaForm = Yup.object().shape({
+        username: Yup.string().required(true),
+        email: Yup.string().email(true).required(true),
+        password: Yup.string().required(true),
+    });
+    const Register = async () => {
         
         formError.value = {};
 
             try {
                 await schemaForm.validate(formData.value, { abortEarly: false});  
                 try {
-                    const response = await registerApi(formData.value);
+                    const response = await RegisterApi(formData.value);
                     router.push("/login");
                 } catch (error) {
                     console.log(error);
@@ -77,17 +77,17 @@ export default {
             }
         };
 
-        return {
-            formData,
-            register,
-            formError,
-        };
-    },
+    return {
+        formData,
+        Register,
+        formError,
+    };
+},
 };
 </script>
 
 <style lang="scss" scoed>
-    .register {
+    .Register {
         text-align: center;
         h2 {
             margin: 50px 0 30px 0 ;

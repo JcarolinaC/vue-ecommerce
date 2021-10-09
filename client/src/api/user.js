@@ -1,4 +1,5 @@
-// import {API_URL} from "../utils/constants";
+
+import {API_URL} from "@/utils/constants";
 
 export async function registerApi(formData) {
     try {
@@ -6,7 +7,7 @@ export async function registerApi(formData) {
         const params = {
             method: "POST",
             headers: {
-                "Content-Type": "application/json",
+                "Content-Type": "@application/json",
             },
             body: JSON.stringify(formData),
         };

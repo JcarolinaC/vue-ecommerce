@@ -3,8 +3,8 @@
         <div class="ui container">
                 <div class="left Menu">
                     <router-link class="item" to="/">
-                        <img class="ui small image" src="@/assets/logo.png" alt="Ecomerce" />
-                        <p>Harmony</p>
+                        <img class="ui small image" src="../assets/logo.png" alt="Ecomerce" />
+                        <p>categoria...</p>
                     </router-link>
                 </div>
                 <div class="right Menu">
