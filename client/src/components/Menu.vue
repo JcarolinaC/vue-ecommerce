@@ -12,6 +12,24 @@
                     <i class="home icon"></i>
                     Inicio
                 </router-link>
+                <router-link class="item" to="/login" v-if="!token">
+                    <i class="sign-in icon"></i>
+                    Iniciar sesión
+                </router-link>
+                <template v-if="token">
+                    <router-link class="item" to="/profile">
+                        <i class="user icon"></i>
+                        Perfil
+                    </router-link>
+                    <!-- <router-link class="item" to="/logout">
+                        <i class="sign-out icon"></i>
+                        Cerrar sesión
+                    </router-link> -->
+                    <span class="ui item logout" @click="logout">
+                        <i class="sign-out icon"></i>
+                        Cerrar sesión
+                    </span>
+                </template>
                 <!-- <router-link class="item" to="/products">
                     <i class="shop icon"></i>
                     Productos
@@ -40,11 +58,28 @@
 
 <script>
 import Menu from '@/components/Menu.vue'
+import { getTokenApi, deleteTokenApi } from "../api/token.js";
+
 export default {
     name:'Menu',
     components: {
         Menu,
-    }
+    },
+    setup() {
+        const token = getTokenApi();
+
+        const logout = () => {
+            // localStorage.removeItem('token');
+            // this.$router.push('/');
+            deleteTokenApi();
+            location.replace('/');
+            console.log('logout');
+        }
+        return {
+            token,
+            logout
+        }
+    },
 };
 </script>
 
