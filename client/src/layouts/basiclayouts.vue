@@ -14,7 +14,6 @@ export default {
     name: "Basiclayouts",
     components: {
         Menu,
-    
         },
 };
 </script>
