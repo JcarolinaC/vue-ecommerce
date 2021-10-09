@@ -8,9 +8,9 @@
 </template>
 
 <script>
-import Basiclayouts from '@/layouts/Basiclayout.vue';
+import Basiclayouts from '@/layouts/Basiclayouts.vue';
 export default {
-    name: 'login',
+    name: 'Login',
     components: {
     Basiclayouts,
   },

@@ -42,8 +42,8 @@
 import { ref } from 'vue';
 import { useRouter } from 'vue-router';
 import * as Yup from 'yup';
-import Basiclayouts from './layouts/Basiclayouts.vue';
-import { registerApi } from '..user/api/user';
+import Basiclayouts from '@/layouts/Basiclayouts.vue';
+// import { registerApi } from '..user/api/user';
 export default {
     name: 'Register',
     components: {
