@@ -4,13 +4,12 @@
                 <div class="left menu">
                     <router-link class="item" to="/">
                         <img class="ui small image" src="../assets/logo.png" alt="Ecomerce" />
-                       
                     </router-link>
-                     <template v-for="category in categories" :key="category.id" >
+                     <div class="item"  v-for="category in categories" :key="category.id" >
                             <router-link class="item" :to="category.slug">
                                 {{ category.title }}
                             </router-link>
-                        </template>
+                        </div>
                 </div>
                 <div class="right menu">
                 <router-link class="item" to="/">
@@ -30,6 +29,10 @@
                         <i class="sign-out icon"></i>
                         Cerrar sesión
                     </router-link> -->
+                     <span class="ui item cart" @click="openCart">
+                        <i class="shopping cart icon"></i>
+                        Cart
+                    </span>
                     <span class="ui item logout" @click="logout">
                         <i class="sign-out icon"></i>
                         Cerrar sesión
@@ -63,7 +66,7 @@
 
 <script>
 import { ref, onMounted } from "vue";
-
+import { useStore } from "vuex";
 import Menu from '@/components/Menu.vue'
 import { getTokenApi, deleteTokenApi } from "../api/token.js";
 
@@ -80,10 +83,11 @@ export default {
         onMounted(async() => {
             const response = await getCategoriesApi();
             categories.value = response;
-            console.log(response);
+            // console.log(response);
         });
 
         const token = getTokenApi();
+        const store = useStore();
 
         const logout = () => {
             // localStorage.removeItem('token');
@@ -92,10 +96,15 @@ export default {
             location.replace('/');
             console.log('logout');
         }
+
+        const openCart = () => {
+            store.commit('setShowCart', true);
+        }
         return {
             token,
             logout,
-            categories
+            categories,
+            openCart,
         }
     },
 };
