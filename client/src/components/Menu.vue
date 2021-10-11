@@ -29,6 +29,10 @@
                         <i class="sign-out icon"></i>
                         Cerrar sesión
                     </router-link> -->
+                     <span class="ui item cart" @click="openCart">
+                        <i class="shopping cart icon"></i>
+                        Cart
+                    </span>
                     <span class="ui item logout" @click="logout">
                         <i class="sign-out icon"></i>
                         Cerrar sesión
@@ -62,7 +66,7 @@
 
 <script>
 import { ref, onMounted } from "vue";
-
+import { useStore } from "vuex";
 import Menu from '@/components/Menu.vue'
 import { getTokenApi, deleteTokenApi } from "../api/token.js";
 
@@ -83,6 +87,7 @@ export default {
         });
 
         const token = getTokenApi();
+        const store = useStore();
 
         const logout = () => {
             // localStorage.removeItem('token');
@@ -91,10 +96,15 @@ export default {
             location.replace('/');
             console.log('logout');
         }
+
+        const openCart = () => {
+            store.commit('setShowCart', true);
+        }
         return {
             token,
             logout,
-            categories
+            categories,
+            openCart,
         }
     },
 };
