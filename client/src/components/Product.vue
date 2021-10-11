@@ -15,6 +15,7 @@
 
 <script>
 import { API_URL } from "../utils/constants.js";
+import { addProductCartApi } from "../api/cart.js";
 
 export default {
 	name: "Product",
@@ -22,9 +23,14 @@ export default {
 		product: Object,
 	},
 	setup(props) {
-		console.log(props.product);
+		const addProductCart = (idProduct) => {
+			console.log(idProduct);
+			console.log(props.product.id);
+			addProductCartApi(idProduct);
+		};
 		return {
 			API_URL,
+			addProductCart,
 		};
 	},
 };

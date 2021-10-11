@@ -43,7 +43,6 @@ export default {
 		const getProducts = async (category) => {
 			const response = await getProductsCategory(category);
 			products.value = response;
-			console.log(response);
 		};
 
 		return {

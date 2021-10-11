@@ -17,7 +17,6 @@ export async function getProductsCategory(category) {
             `${API_URL}/products?_where[category.slug]=${category}&_sort=created_at:desc`
             );
             const result = await response.json();
-            console.log(result);
             return result;
     } catch (error) {
         console.log(error);
