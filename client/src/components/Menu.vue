@@ -80,7 +80,7 @@ export default {
         onMounted(async() => {
             const response = await getCategoriesApi();
             categories.value = response;
-            console.log(response);
+            // console.log(response);
         });
 
         const token = getTokenApi();
