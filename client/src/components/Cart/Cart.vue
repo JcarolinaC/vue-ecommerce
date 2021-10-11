@@ -2,7 +2,7 @@
 <div>
     <div class="cart-dimmer" :class="{ open: showCart }" @click="closeCart"/>
 	<div class="cart" :class="{open: showCart}">
-            <CardHeader :closeCart="closeCart" />
+            <CartHeader :closeCart="closeCart" />
 		<!-- <button @click="closeCart">Cerrar</button> -->
 	</div>
 </div>
@@ -11,12 +11,12 @@
 <script>
 import { computed } from 'vue';
 import { useStore } from 'vuex';
-import CartHeader from '@/components/Cart/CartHeader';
+import CartHeader from './CartHeader.vue';
 
 export default {
 	name: "Cart",
     components: {
-        CartHeader
+        CartHeader,
     },
     setup() {
         const store = useStore();

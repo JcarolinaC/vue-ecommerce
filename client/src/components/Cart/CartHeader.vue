@@ -16,7 +16,6 @@ export default {
 
 <style lang="scss" scoped>
 .card-header{
-    background-color: #000;
     display: flex;
     align-items: center;
     justify-content: space-between;
