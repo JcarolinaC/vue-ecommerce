@@ -1,21 +1,32 @@
 <template>
+<div>
+    <div class="cart-dimmer" :class="{ open: showCart }" @click="closeCart"/>
 	<div class="cart" :class="{open: showCart}">
-		<h2>esto es el carrito</h2>
-		<button>Cerrar</button>
+            <CardHeader :closeCart="closeCart" />
+		<!-- <button @click="closeCart">Cerrar</button> -->
 	</div>
+</div>
 </template>
 
 <script>
 import { computed } from 'vue';
 import { useStore } from 'vuex';
+import CartHeader from '@/components/Cart/CartHeader';
 
 export default {
 	name: "Cart",
+    components: {
+        CartHeader
+    },
     setup() {
         const store = useStore();
         const showCart = computed(() => store.state.showCart);
 
-        return {showCart};
+        const closeCart =  () => {
+            store.commit('setShowCart', false);
+        }
+
+        return {showCart, closeCart};
     },
 };
 </script>
@@ -30,6 +41,8 @@ export default {
 		left: 0;
 		width: 100%;
 		height: 100%;
+        background-color: #000;
+        opacity: 0.7;
 	}
 }
 .cart {
