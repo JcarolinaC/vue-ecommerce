@@ -1,10 +1,15 @@
 <template>
   <Basiclayouts>
     <h2> Harmony un estilo de vida diferente </h2>
-    <h1>Ultimos productos</h1>
+    <!-- <h1>Ultimos productos</h1> -->
     <div class="ui grid">
-      pendiente vfor de productos
-
+      <div 
+		 class="sisxteen wide mobile eight wide tablet  four wide computer  column"
+		 v-for="product in products"
+		 :key="product.id"
+      >
+		<Product :product="product" />
+      </div>
     </div>
 
   </Basiclayouts>
@@ -14,7 +19,7 @@
 import { ref, onMounted } from "vue";
 import Basiclayouts from '@/layouts/Basiclayouts.vue';
 import { getProducts } from "@/api/product.js";
-import {Product} from "@/components/Product.vue";
+import Product from "@/components/Product.vue";
 // @ is an alias to /src
 
 export default {
@@ -29,8 +34,11 @@ export default {
       onMounted(async () => {
         const response = await getProducts(20);
         products.value = response;
-        console.log(response);
+        // console.log(response);
       });
+	  return {
+		products,
+	  }
     }
   };
 </script>
