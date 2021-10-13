@@ -17,6 +17,18 @@ export function deleteProductCartApi(idProduct) {
     localStorage.setItem(PRODUCTS, JSON.stringify(products));
 }
 
+export function deleteAllProductCartApi(idProduct) {
+    const products = getCartApi();
+
+    const index = products.indexOf(idProduct);
+
+    if (index > -1) {
+        products.splice(index, 1);
+        localStorage.setItem(PRODUCTS, JSON.stringify(products));
+        deleteAllProductCartApi(idProduct);
+    }
+}
+
 export function getCartApi() {
     const productlist = JSON.parse(localStorage.getItem(PRODUCTS));
 

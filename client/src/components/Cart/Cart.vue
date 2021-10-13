@@ -11,12 +11,12 @@
 </template>
 
 <script>
-import { ref, computed, watchEffect, watch } from 'vue';
+import { ref, computed, watchEffect } from 'vue';
 import { useStore } from 'vuex';
 import CartHeader from '@/components/Cart/CartHeader.vue';
 import CartBody from '@/components/Cart/CartBody.vue';
 import CartFooter from '@/components/Cart/CartFooter.vue';
-import { getProductsCartApi } from '@/api/cart.js';
+import { getProductsCartApi, deleteAllProductCartApi } from '@/api/cart.js';
 
 export default {
 	name: "Cart",
