@@ -15,7 +15,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.card-header{
+.cart-header{
     display: flex;
     align-items: center;
     justify-content: space-between;

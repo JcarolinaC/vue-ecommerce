@@ -3,30 +3,59 @@
     <div class="cart-dimmer" :class="{ open: showCart }" @click="closeCart"/>
 	<div class="cart" :class="{open: showCart}">
             <CartHeader :closeCart="closeCart" />
+			<CartBody :products="products" :realoadCartFn="realoadCartFn" />
 		<!-- <button @click="closeCart">Cerrar</button> -->
+			<CartFooter :products="products" :closeCart="closeCart" v-if="products" />
 	</div>
 </div>
 </template>
 
 <script>
-import { computed } from 'vue';
+import { ref, computed, watchEffect } from 'vue';
 import { useStore } from 'vuex';
-import CartHeader from './CartHeader.vue';
+import CartHeader from '@/components/Cart/CartHeader.vue';
+import CartBody from '@/components/Cart/CartBody.vue';
+import CartFooter from '@/components/Cart/CartFooter.vue';
+import { getProductsCartApi, deleteAllProductCartApi } from '@/api/cart.js';
 
 export default {
 	name: "Cart",
     components: {
         CartHeader,
+		CartBody,
+		CartFooter,
     },
     setup() {
         const store = useStore();
         const showCart = computed(() => store.state.showCart);
+		let products = ref(null);
+		let realoadCart = ref(false);
+
+		const getProductsCart = async () => {
+			const response = await getProductsCartApi();
+			products.value = response;
+		};
+
+		watchEffect(() => {
+			showCart.value;
+			realoadCart.value;
+			getProductsCart();
+		});
 
         const closeCart =  () => {
             store.commit('setShowCart', false);
-        }
+        };
 
-        return {showCart, closeCart};
+		const realoadCartFn = () => {
+			realoadCart.value = !realoadCart.value;
+		};
+
+
+        return {showCart,
+		closeCart,
+		products,
+		realoadCartFn
+		};
     },
 };
 </script>
