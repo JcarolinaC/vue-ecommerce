@@ -14,7 +14,7 @@
 </template>
 
 <script>
-import { ref, onMounted } from "vue";
+import { ref, onMounted, onUpdated } from "vue";
 import { useRoute } from "vue-router";
 import Basiclayouts from "../layouts/Basiclayouts.vue";
 import Product from "../components/Product.vue";
@@ -38,6 +38,11 @@ export default {
 
 		onMounted(() => {
 			getProducts(params.Category);
+		});
+
+		onUpdated(() => {
+			getProducts(params.Category);
+			console.log("updated");
 		});
 
 		const getProducts = async (category) => {
