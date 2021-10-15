@@ -117,6 +117,12 @@ export default {
 <style lang="scss" scoped>
 .ui.menu.secondary {
 	background-color: rgb(247, 170, 183);
+    background-image:
+    radial-gradient(
+        circle at top right,
+        rgb(212, 2, 212),
+        #ff94fa 50%
+    );
 
 	.item {
 		color: white;
