@@ -6,14 +6,14 @@
 					<img class="ui small image" src="../assets/logo.png" alt="Ecomerce" />
 				</router-link>
 				<template v-for="category in categories"  :key="category.id">
-					<!-- <router-link class="item" :to="category.slug">
+					<router-link class="item" :to="category.slug">
 						{{ category.title }}
-					</router-link> -->
-                    <div class="left menu" >
+					</router-link>
+                    <!-- <div class="left menu" >
                         <a class="item" :href="$router.resolve({name:'Category', params: {Category: category.slug}}).href">
                             <span>{{category.title}}</span>  
                         </a>
-                    </div>
+                    </div> -->
 				</template>
 			</div>
 			<div class="right menu">
